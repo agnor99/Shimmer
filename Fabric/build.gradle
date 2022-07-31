@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.10-SNAPSHOT'
+    id 'fabric-loom' version '0.12-SNAPSHOT'
     id 'maven-publish'
     id 'idea'
 }
@@ -15,7 +15,7 @@ dependencies {
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
 
     // Sodium
-    modImplementation ("curse.maven:sodium-394468:3669187") {
+    modImplementation ("curse.maven:sodium-394468:${sodium}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
     // This is a dependency of Sodium....

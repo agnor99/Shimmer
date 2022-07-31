@@ -108,11 +108,15 @@ dependencies {
     compileOnly project(":Common")
 
     // Rubidium
-    implementation fg.deobf("curse.maven:rubidium-574856:3749094")
-    implementation fg.deobf("curse.maven:flywheel-486392:3871082")
-    //Modern UI
-    runtimeLibrary "icyllis.modernui:ModernUI-Core:3.4.4.103"
-    runtimeOnly fg.deobf("icyllis.modernui:ModernUI-Forge:${minecraft_version}-3.4.4.103")
+    implementation fg.deobf("curse.maven:rubidium-574856:${rubidium}")
+
+    // Not Yet Available on 1.19.1
+    //implementation fg.deobf("curse.maven:flywheel-486392:3871082")
+
+
+    //Modern UI - Not yet Available on 1.19.1
+    //runtimeLibrary "icyllis.modernui:ModernUI-Core:${modern_ui}"
+    //runtimeOnly fg.deobf("icyllis.modernui:ModernUI-Forge:${minecraft_version}-${modern_ui}")
 
     if (System.getProperty('idea.sync.active') != 'true') {
         annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
