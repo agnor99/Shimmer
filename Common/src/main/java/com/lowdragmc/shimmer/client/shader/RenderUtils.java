@@ -43,7 +43,7 @@ public class RenderUtils {
         bufferbuilder.vertex(1, -1, 0).endVertex();
         bufferbuilder.vertex(1, 1, 0).endVertex();
         bufferbuilder.end();
-        BufferUploader._endInternal(bufferbuilder);
+        //BufferUploader._endInternal(bufferbuilder);
         blitShader.clear();
 
         GlStateManager._depthMask(true);

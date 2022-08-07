@@ -103,12 +103,9 @@ public abstract class ForgeParticleEngineMixin implements IParticleEngine {
     @Inject(method = "loadParticleDescription",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/particle/ParticleDescription;getTextures()Ljava/util/List;"),
             locals = LocalCapture.CAPTURE_FAILHARD)
-    private void injectLoad(ResourceManager $$0, ResourceLocation $$1, Map<ResourceLocation, List<ResourceLocation>> $$2,
-                            CallbackInfo ci,
-                            ResourceLocation $$3,
-                            Resource $$4, Reader $$5, ParticleDescription $$6) {
-        if ($$6 instanceof IParticleDescription particleDescription && particleDescription.getEffect() != null) {
-            PARTICLE_EFFECT.put($$1, particleDescription.getEffect());
+    private void injectLoad(ResourceManager p_107317_, ResourceLocation p_107318_, Map<ResourceLocation, List<ResourceLocation>> p_107319_, CallbackInfo ci, ResourceLocation resourcelocation, Reader reader, ParticleDescription particledescription) {
+        if (particledescription instanceof IParticleDescription particleDescription && particleDescription.getEffect() != null) {
+            PARTICLE_EFFECT.put(p_107318_, particleDescription.getEffect());
         }
     }
 

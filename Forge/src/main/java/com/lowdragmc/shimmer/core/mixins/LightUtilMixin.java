@@ -4,8 +4,6 @@ import com.lowdragmc.shimmer.client.postprocessing.PostProcessing;
 import com.lowdragmc.shimmer.core.IBakedQuad;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import net.minecraft.client.renderer.block.model.BakedQuad;
-import net.minecraftforge.client.model.pipeline.IVertexConsumer;
-import net.minecraftforge.client.model.pipeline.LightUtil;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -19,7 +17,7 @@ import java.util.Arrays;
  * @date 2022/7/8
  * @implNote LightUtilMixin
  */
-@Mixin(LightUtil.class)
+/*@Mixin(LightUtil.class)
 public class LightUtilMixin {
 
     @Inject(method = "putBakedQuad", at = @At(
@@ -42,4 +40,4 @@ public class LightUtilMixin {
             Arrays.fill(data, 0X1F0 / 240F);
         }
     }
-}
+}*/

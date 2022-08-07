@@ -6,8 +6,7 @@
   "plugin": "com.lowdragmc.shimmer.core.mixins.ShimmerForgeMixinPlugin",
   "client": [
     "ForgeParticleEngineMixin",
-    "ForgeShaderInstanceMixin",
-    "LightUtilMixin"
+    "ForgeShaderInstanceMixin"
   ],
   "mixins": [
     "rubidium.BlockRendererMixin",

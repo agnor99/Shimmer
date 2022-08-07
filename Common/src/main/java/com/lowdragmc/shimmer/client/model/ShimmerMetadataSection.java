@@ -13,6 +13,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public record ShimmerMetadataSection(boolean bloom) {
     public static final String SECTION_NAME = ShimmerConstants.MOD_ID;
@@ -23,13 +24,21 @@ public record ShimmerMetadataSection(boolean bloom) {
         if (METADATA_CACHE.containsKey(res)) {
             return METADATA_CACHE.get(res);
         }
+
         ShimmerMetadataSection ret;
-        try (Resource resource = Minecraft.getInstance().getResourceManager()
-                .getResource(res)) {
-            ret = resource.getMetadata(Serializer.INSTANCE);
-        } catch (Exception e) {
+
+        Optional<Resource> resource = Minecraft.getInstance().getResourceManager().getResource(res);
+
+        if (resource.isPresent()) {
+            try {
+                ret = resource.get().metadata().getSection(Serializer.INSTANCE).get();
+            } catch (Exception e) {
+                ret = null;
+            }
+        } else {
             ret = null;
         }
+
         METADATA_CACHE.put(res, ret);
         return ret;
     }

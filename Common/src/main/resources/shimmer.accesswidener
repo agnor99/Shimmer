@@ -7,3 +7,8 @@ accessible method net/minecraft/client/renderer/RenderType create (Ljava/lang/St
 
 accessible field net/minecraft/client/renderer/LevelRenderer$RenderChunkInfo chunk Lnet/minecraft/client/renderer/chunk/ChunkRenderDispatcher$RenderChunk;
 accessible field com/mojang/blaze3d/vertex/PoseStack poseStack Ljava/util/Deque;
+
+accessible class net/minecraft/client/renderer/chunk/ChunkRenderDispatcher$RenderChunk$RebuildTask
+accessible class net/minecraft/client/renderer/chunk/ChunkRenderDispatcher$RenderChunk$RebuildTask$CompileResults
+accessible method com/mojang/blaze3d/shaders/Program$Type getGlType ()I
+accessible field net/minecraft/client/renderer/chunk/ChunkRenderDispatcher$RenderChunk$RebuildTask this$1 Lnet/minecraft/client/renderer/chunk/ChunkRenderDispatcher$RenderChunk;

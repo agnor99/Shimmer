@@ -6,6 +6,7 @@ import com.google.gson.JsonParser;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.Resource;
+import net.minecraft.server.packs.resources.ResourceManager;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -21,17 +22,17 @@ public class Configuration {
     private static final ResourceLocation configLocation = new ResourceLocation(ShimmerConstants.MOD_ID,"shimmer.json");
     public static List<JsonObject> config = new ArrayList<>();
 
-    public static void load() {
+    public static void load(ResourceManager resourceManager) {
         config.clear();
         try {
-            List<Resource> resources = Minecraft.getInstance().getResourceManager().getResources(configLocation);
+            List<Resource> resources = resourceManager.getResourceStack(configLocation);
             for (var resource : resources){
-                try (InputStreamReader reader = new InputStreamReader(resource.getInputStream())) {
+                try (InputStreamReader reader = new InputStreamReader(resource.open())) {
                     JsonElement jsonElement = JsonParser.parseReader(reader);
                     if (jsonElement instanceof JsonObject jsonObject){
                         config.add(jsonObject);
                     }else {
-                        ShimmerConstants.LOGGER.info("failed to parse resource:{}",resource.getLocation());
+                        ShimmerConstants.LOGGER.info("failed to parse resource:{}", resource.sourcePackId());
                     }
                 }
             }
